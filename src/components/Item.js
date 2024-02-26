@@ -1,0 +1,23 @@
+export default function Item({ item, onDeleteItem, onToggleItem }) {
+  return (
+    <li>
+      <input
+        type="checkbox"
+        value={item.packed}
+        // Update Item base on ID
+        onChange={() => onToggleItem(item.id)}
+      />
+      <span>{item.quantity}</span>
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.description}
+      </span>
+
+      <button
+        // Delet item base on ID
+        onClick={() => onDeleteItem(item.id)}
+      >
+        ❌
+      </button>
+    </li>
+  );
+}
